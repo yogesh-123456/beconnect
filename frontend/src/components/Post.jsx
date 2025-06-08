@@ -35,7 +35,7 @@ const Post = ({ post1 }) => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.get(
-        `http://localhost:8000/api/v1/post/${post1._id}/${action}`,
+        `https://beconnect-zqbv.onrender.com/api/v1/post/${post1._id}/${action}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -65,7 +65,7 @@ const Post = ({ post1 }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/post/${post1._id}/comment`,
+        `https://beconnect-zqbv.onrender.com/api/v1/post/${post1._id}/comment`,
         { text },
         {
           headers: {
@@ -95,7 +95,7 @@ const Post = ({ post1 }) => {
   const deletePostHandler = async () => {
     try {
       const res = await axios.delete(
-        `http://localhost:8000/api/v1/post/delete/${post1?._id}`,
+        `https://beconnect-zqbv.onrender.com/api/v1/post/delete/${post1?._id}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -113,7 +113,7 @@ const Post = ({ post1 }) => {
 
   const bookmarkHandler = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/post/${post1?._id}/bookmark`, {withCredentials:true});
+      const res = await axios.get(`https://beconnect-zqbv.onrender.com/api/v1/post/${post1?._id}/bookmark`, {withCredentials:true});
       if(res.data.success){
         toast.success(res.data.message);
       }
